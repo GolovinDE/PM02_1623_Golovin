@@ -1,0 +1,108 @@
+﻿<Window x:Class="Minimum.MinimumTask"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="Метод минимальных элементов" Height="850" Width="1100"
+        WindowStartupLocation="CenterScreen"
+        Background="LightGray"
+        Loaded="Window_Loaded">
+
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+
+        <Border Background="#FF0D6EFD" Padding="20" Grid.Row="0">
+            <TextBlock Text="Транспортная задача - Метод минимальных элементов" 
+                       FontSize="28" FontWeight="Bold" 
+                       Foreground="White" HorizontalAlignment="Center"/>
+        </Border>
+
+        <ScrollViewer Grid.Row="1" VerticalScrollBarVisibility="Auto" HorizontalScrollBarVisibility="Auto">
+            <Border Margin="20" Background="White" CornerRadius="10" Padding="20">
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                    </Grid.RowDefinitions>
+
+                    <StackPanel Grid.Row="0" Orientation="Horizontal" Margin="0,0,0,20" VerticalAlignment="Center">
+                        <TextBlock Text="Поставщики:" VerticalAlignment="Center" Margin="5" FontWeight="Bold"/>
+                        <ComboBox x:Name="SuppliersComboBox" Width="80" Height="30" 
+                                  SelectionChanged="SuppliersComboBox_SelectionChanged">
+                            <ComboBoxItem Content="2"/>
+                            <ComboBoxItem Content="3"/>
+                            <ComboBoxItem Content="4" IsSelected="True"/>
+                            <ComboBoxItem Content="5"/>
+                            <ComboBoxItem Content="6"/>
+                        </ComboBox>
+
+                        <TextBlock Text="Потребители:" VerticalAlignment="Center" Margin="20,5,5,5" FontWeight="Bold"/>
+                        <ComboBox x:Name="ConsumersComboBox" Width="80" Height="30" 
+                                  SelectionChanged="ConsumersComboBox_SelectionChanged">
+                            <ComboBoxItem Content="2"/>
+                            <ComboBoxItem Content="3" IsSelected="True"/>
+                            <ComboBoxItem Content="4"/>
+                            <ComboBoxItem Content="5"/>
+                            <ComboBoxItem Content="6"/>
+                        </ComboBox>
+
+                        <Button x:Name="CalculateButton" Content="Рассчитать" 
+                                Width="120" Height="35" Margin="20,5,5,5"
+                                Background="#FF0D6EFD" Foreground="White"
+                                FontWeight="Bold" FontSize="14"
+                                Click="CalculateButton_Click"/>
+
+                        <Button x:Name="ClearButton" Content="Очистить" 
+                                Width="100" Height="35" Margin="5"
+                                Background="#FF6B6B" Foreground="White"
+                                FontWeight="Bold" FontSize="14"
+                                Click="ClearButton_Click"/>
+
+                        <Button x:Name="LoadButton" Content="Загрузить" 
+                                Width="100" Height="35" Margin="5"
+                                Background="#4CAF50" Foreground="White"
+                                FontWeight="Bold" FontSize="14"
+                                Click="LoadButton_Click"/>
+
+                        <Button x:Name="SaveButton" Content="Сохранить" 
+                                Width="100" Height="35" Margin="5"
+                                Background="#FF9800" Foreground="White"
+                                FontWeight="Bold" FontSize="14"
+                                Click="SaveButton_Click"/>
+
+                        <Button x:Name="ExitButton" Content="Выход" 
+                                Width="100" Height="35" Margin="5"
+                                Background="#FF4444" Foreground="White"
+                                FontWeight="Bold" FontSize="14"
+                                Click="ExitButton_Click"/>
+                    </StackPanel>
+
+                    <Border Grid.Row="1" BorderBrush="Gray" BorderThickness="1" Padding="5" Margin="0,0,0,20">
+                        <ScrollViewer HorizontalScrollBarVisibility="Auto" VerticalScrollBarVisibility="Auto">
+                            <Grid x:Name="MainTableGrid"/>
+                        </ScrollViewer>
+                    </Border>
+
+                    <TextBlock x:Name="TotalCostTextBlock" Grid.Row="2" FontSize="18" FontWeight="Bold" 
+                               Margin="0,0,0,20" HorizontalAlignment="Center"/>
+
+                    <Border Grid.Row="3" BorderBrush="Gray" BorderThickness="1" Padding="5" Margin="0,0,0,20">
+                        <ScrollViewer HorizontalScrollBarVisibility="Auto" VerticalScrollBarVisibility="Auto">
+                            <Grid x:Name="ResultGrid"/>
+                        </ScrollViewer>
+                    </Border>
+
+                    <Button Grid.Row="4" x:Name="ExitButtonBottom" Content="Выход" 
+                            Width="100" Height="35" HorizontalAlignment="Right"
+                            Background="#FF4444" Foreground="White"
+                            FontWeight="Bold" FontSize="14"
+                            Click="ExitButton_Click"/>
+                </Grid>
+            </Border>
+        </ScrollViewer>
+    </Grid>
+</Window>
